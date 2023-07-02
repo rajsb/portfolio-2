@@ -46,17 +46,21 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # NOTE(Raj): debug gem causes weird issues like unix socket name too long. Hence using pry.
+  gem 'pry'
 end
 
 group :development do
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'bullet'
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
